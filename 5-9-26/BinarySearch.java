@@ -20,7 +20,8 @@ public class BinarySearch{
     public static int bs(int a[],int k){
         int l = 0,u = a.length-1;
         while(l<=u){ // ee equal to marchipothey test cases rale 
-            int mid = l+u/2;
+            // int mid = l+u/2; // this might have the risk of overflow
+            int mid = l + (u-l)/2;
             if(a[mid] == k){
                 return mid +1; // to balance zero based index
             }
