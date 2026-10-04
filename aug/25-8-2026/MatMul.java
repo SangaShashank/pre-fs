@@ -50,7 +50,7 @@ public class MatMul{
         int res [][] = mat_mul(arr1,arr2,a,b,c,d);
         for(int i =0;i<a;i++){
             for(int j=0;j<d;j++){
-                System.out.print(res[i][j]);
+                System.out.print(res[i][j] + " ");
             }
             System.out.println();
         }
@@ -58,6 +58,15 @@ public class MatMul{
     public static int [][] mat_mul(int arr1[][],int arr2[][],int a,int b,int c,int d){
         int res [][] = new int [a][d];
         for (int i=0;i<a;i++){
-            for(int j=0;j<)
+            for(int j=0;j<d;j++){
+                int sum = 0;
+                for(int k=0;k<b;k++){
+                    sum+= arr1[i][k]*arr2[k][j];
+
+                }
+                res[i][j] = sum;
+            }
         }
+        return res;
+}
 }
