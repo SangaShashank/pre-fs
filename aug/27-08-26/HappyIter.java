@@ -35,6 +35,7 @@ public class HappyIter{
                 n = n/10;
             }
             n = sum;
+            //System.err.println(n);
             if(n == 1){
                 return true;
             }
