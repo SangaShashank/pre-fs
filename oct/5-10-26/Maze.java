@@ -78,13 +78,17 @@ public class Maze{
         if(r == arr.length-1 && c == arr.length-1 && arr[r][c] == 1){
             return true;
         }
-        if(in_bounds(arr,r+1,c)){ // down dhi 
+       /* if(in_bounds(arr,r+1,c)){ // down dhi 
                return bfs_rec(arr,r+1,c);
         }
-        if(in_bounds(arr,r,c+1)){ // right dhi 
+        if(in_bounds(arr,r,c+1)){ // right dhi  // ila cheste madaylo ney stop aypitunndi 
             return bfs_rec(arr,r,c+1);
         }
-        return false;
+        return false;*/ 
+        if(!in_bounds(arr,r,c)){
+            return false;
+        }
+        return bfs_rec(arr,r+1,c) || bfs_rec(arr,r,c+1);
     }
     public static boolean in_bounds(int arr[][], int r,int c){
         System.out.println(r + " " + c);
