@@ -51,7 +51,7 @@ Sample Output-2:
 5
 */
 import java.util.*;
-public class MaxArea_DFS
+public class MaxArea_BFS
 {
     public static void main(String args[]){
         Scanner s = new Scanner (System.in);
@@ -80,7 +80,7 @@ public class MaxArea_DFS
     }
     public static int bfs(int grid[][],int a,int b){
         Queue <int []> q = new LinkedList<>();
-        q.offer(new int[]{a,b})
+        q.offer(new int[]{a,b});
         int res = 1; // already starting taken 
         int neighbours [][] = new int[][]{{0,1},{1,0},{-1,0},{0,-1}};
         while(!q.isEmpty()){

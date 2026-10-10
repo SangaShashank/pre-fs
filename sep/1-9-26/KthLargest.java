@@ -24,13 +24,23 @@ public class KthLargest{
         Scanner s = new Scanner(System.in);
         int n = s.nextInt();
         int arr [] = new int[n];
+        for(int i =0;i<n;i++){
+           arr[i] =  s.nextInt(); 
+        }
         int k = s.nextInt();
         System.out.println(app1(arr,k));
     }
     public static int app1(int arr[],int k){
-        PriotyQueue <I
+        PriorityQueue <Integer> pq = new PriorityQueue<>();
+         pq.add(Integer.MIN_VALUE); // 1st iteration lo peek emm unndadu kada , so akkada problem ravaddu ani 
         for(int i=0;i<arr.length;i++){
-
+            if(pq.peek() < arr[i]){ // konni useless additions apataniki ee enhancement 
+                pq.add(arr[i]);
+            }
+            if(pq.size()>k){
+                pq.poll();
+            }
         }
+        return pq.peek();
     }
 }
