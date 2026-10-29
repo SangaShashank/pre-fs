@@ -48,10 +48,9 @@ public class minmax_dc{
 
 
 
+5
 
 
-
-    
     public static int [] minmax2(int arr[],int low , int high ){
         if(low == high ){
             return (new int[]{ arr[low], arr[low] }); 
