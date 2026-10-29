@@ -44,6 +44,14 @@ public class minmax_dc{
         int max = Math.max(leftans[1], rightans[1]);
         return (new int[]{min,max});
     }
+
+
+
+
+
+
+
+    
     public static int [] minmax2(int arr[],int low , int high ){
         if(low == high ){
             return (new int[]{ arr[low], arr[low] }); 

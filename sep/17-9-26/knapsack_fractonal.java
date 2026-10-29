@@ -14,11 +14,9 @@ Input Format:
 -------------
 Line-1: Two space separated integers, N and C.
 Next N lines: Two space separated integers, Ci and Qi. cost and quantity of i-th product.
-
 Output Format:
 --------------
 Print an integer, Maximum cost to pay to D-Mart.
-
 
 Sample Input-1:
 ---------------
@@ -55,3 +53,7 @@ Explanation:
 Quantity = 6 + 3 + 5 + 4 = 18
 Cost = 18 + 20 + 14 + 14 = 66
 */
+import java.util.*;
+public class knapsack_fractonal{
+	
+}

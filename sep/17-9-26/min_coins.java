@@ -29,7 +29,7 @@ public class min_coins{
         int i=0;
         int nc = 0;
         while(n!=0){
-            while(n<=coins_array[i] && i<coins_array.length-1) i++;
+            while(n<coins_array[i] && i<coins_array.length-1) i++;
             nc+= n/coins_array[i];
             n = n%coins_array[i];
         }

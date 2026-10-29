@@ -41,8 +41,7 @@ false
 
 import java.util.*;
 
-class BinaryTreeNode
-{
+class BinaryTreeNode{
 	public int data; 
 	public BinaryTreeNode left, right; 
 	public BinaryTreeNode(int data){

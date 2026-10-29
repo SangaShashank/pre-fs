@@ -62,3 +62,26 @@ Sample Output-2:
 1: 0 2
 
 */
+import java.util.*;
+public class Adjaceny_list{
+    public static void main(String args[]){
+        Scanner s = new Scanner(System.in);
+        int v = s.nextInt();
+        int e = s.nextInt();
+        int adajency_matrix [][] = new int[v][v];
+        for(int i=0;i<e;i++){
+            int l = s.nextInt();
+            int m = s.nextInt();
+            adajency_matrix[l][m] = 1;
+            adajency_matrix[m][l] = 1;
+        }
+        for(int i=0;i<v;i++){
+            System.out.print(i+":"+" ");
+            for(int j=0;j<v;j++){
+                if(adajency_matrix[i][j]==1)
+                System.out.print(j+" ");
+            }
+            System.out.println();
+        }
+    }
+}
