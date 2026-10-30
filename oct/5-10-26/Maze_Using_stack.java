@@ -57,6 +57,8 @@ Sample Output-1:
 ----------------
 false
 */
+//ali code 
+
 
 import java.util.*;
 class Maze_Using_stack

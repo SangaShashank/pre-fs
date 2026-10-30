@@ -70,7 +70,7 @@ public class MaxArea_BFS
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
                 if(grid[i][j] == 1){
-                    grid[i][j] = 0;
+                    //grid[i][j] = 0; // ee line bfs lopala rayali annta 
                     int area = bfs(grid,i,j);
                     final_area = Math.max(final_area,area);
                 }
@@ -81,8 +81,12 @@ public class MaxArea_BFS
     public static int bfs(int grid[][],int a,int b){
         Queue <int []> q = new LinkedList<>();
         q.offer(new int[]{a,b});
+        grid[a][b] = 0;
         int res = 1; // already starting taken 
-        int neighbours [][] = new int[][]{{0,1},{1,0},{-1,0},{0,-1}};
+        int neighbours [][] = new int[][]{{-1,-1}, {-1,0}, {-1,1},
+            {0,-1},           {0,1},
+            {1,-1},  {1,0},   {1,1}
+        };
         while(!q.isEmpty()){
             int element [] = q.poll();
             for(int [] x:neighbours){
