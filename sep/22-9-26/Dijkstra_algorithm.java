@@ -63,12 +63,13 @@ public class Dijkstra_algorithm{
             for(int i=0;i<n;i++){
                 // min unvisited vertex kavali kada
                 int u = best_vertex(visited,mindist,n);
-                visited[u] = true;
+
                 if(u == -1) return mindist; // all visisted ani artham
+                visited[u] = true; // ee line painai rasrina indadak , which is logical error 
                 for(int v=0;v<n;v++){
                     //main hero 
                     if(graph[u][v] != 0 && visited[v]!= true && mindist[v]> mindist[u]+ graph[u][v]){
-                        mindist[v]= mindist[u]+ graph[v][u];
+                        mindist[v]= mindist[u]+ graph[u][v];
                     }
                 }
             }
