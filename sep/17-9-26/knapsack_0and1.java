@@ -63,7 +63,27 @@ Cost = 18 + 20 + 18 = 56
 */
 import java.util.*;
 public class knapsack_0and1 {
+	static int n, capacity;
+	static int cost[] = new int[n], weight[] = new int [n];
+	// actual ga fucntion call pass cheayli kani , function ep ep ayitadi ani ooriekey ila rasina 
+	// if u want change later
     public static void main(String args []){
-        
+        Scanner s = new Scanner(System.in);
+		 n = s.nextInt();
+		 capacity = s.nextInt();
+		for(int i=0;i<n;i++) {
+			cost[i] = s.nextInt();
+			weight[i] = s.nextInt();
+		}
+		System.out.println(solve(0,capacity));
     }
+	public static int solve(int i, int space){
+		if(i==n) return 0;
+		int leave = solve(i+1,space) ;
+		int take = 0;
+		if(weight[i]<=space){
+			take = cost[i] + solve(i+1, space-weight[i]);
+		}
+		return Math.max(leave,take);
+	}
 }

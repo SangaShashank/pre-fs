@@ -55,5 +55,59 @@ Cost = 18 + 20 + 14 + 14 = 66
 */
 import java.util.*;
 public class knapsack_fractonal{
-	
+	public static void main(String args[]){
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int capacity = s.nextInt();
+		int weight [] = new int[n];
+		double value[] = new double[n]; // float enduku anntey division kosam 
+		double ratio [] = new double[n];
+		for(int i=0;i<n;i++){
+			value [i] = s.nextInt();
+			weight[i] = s.nextInt();
+			ratio[i] = value[i]/weight[i];
+		}
+		for(int i=0;i<n;i++){
+			for(int j = 0;j<n-1;j++){
+				if(ratio[j]<ratio[j+1]){
+					// swap all 
+					double  temp = ratio[j];
+					ratio[j] = ratio[j+1];
+					ratio[j+1] = temp;
+					
+					int temp1 = 	weight[j];
+					weight[j] = weight[j+1];
+					weight[j+1] = temp1;
+
+					double temp2 = value[j];
+					value[j] = value[j+1];
+					value[j+1] = temp2;
+
+				}
+			}
+		} // now all are sorted in the ratio's order 
+		//lets appply the knapscak now
+		double res = 0;
+		for(int i=0;i<n;i++){
+			if(weight[i]<=capacity){
+				res += value[i];
+				capacity-= weight[i];
+			}
+			else{
+				// fraction case 
+				res += ratio[i]*capacity;
+				capacity -= capacity;
+				//System.out.println(res);
+
+			}
+			/*if(capacity==0) { // end point  kani alsu avasram ledu 
+				System.out.println(res);
+				return;
+			}*/
+
+		}
+		System.out.println(res);
+
+
+	}
 }
