@@ -61,7 +61,28 @@ class BinaryTreeNode
 
 class Solution 
 {
-    
+    public ArrayList<Integer> largestValues(BinaryTreeNode root){
+		ArrayList<Integer> max = new ArrayList<>();
+		dfs_max(root,0,max);
+		return max; 
+	}
+	public void dfs_max(BinaryTreeNode root,int level, ArrayList<Integer> max) {
+		if(max.size()<= level){ //
+			max.add(root.data);
+		}
+		if(max.get(level)<root.data){
+			max.set(level,root.data);
+		}
+		//recursive calls the heart of dfs 
+		if(root.left != null && root.left.data!= -1){
+			dfs_max(root.left,level+1,max);
+		}
+		if(root.right!= null && root.right.data!= -1){
+			dfs_max(root.right,level+1,max);
+		}
+		return;
+
+	}
 }
 
 public class MaxValInEachLevel_dfs 
@@ -111,3 +132,5 @@ public class MaxValInEachLevel_dfs
 		System.out.println(sol.largestValues(root));
 	}
 }
+// dsa 10
+//https://claude.ai/share/0b4a0e0d-336b-4cc6-b9ab-044358892f5c

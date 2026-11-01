@@ -60,6 +60,10 @@ class Solution
 {
 	List<Integer> sum = new ArrayList<Integer>();
 	List<Integer> levelCount = new ArrayList<Integer>();
+	public  ArrayList<Integer>  averageOfLevels(BinaryTreeNode root){
+		System.out.println(dfs_avg(root,0,sum,levelcount));
+	}
+	public ArrayList<Integer> dfs_avg()
 
 
 }
