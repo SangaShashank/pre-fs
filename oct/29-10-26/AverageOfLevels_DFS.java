@@ -42,7 +42,7 @@ Sample Output-2:
 
 
 */
-
+//https://claude.ai/share/15b6c738-212a-4cf7-9018-4daa8ed2c268
 import java.util.*;
 
 class BinaryTreeNode
@@ -59,11 +59,32 @@ class BinaryTreeNode
 class Solution 
 {
 	List<Integer> sum = new ArrayList<Integer>();
-	List<Integer> levelCount = new ArrayList<Integer>();
-	public  ArrayList<Integer>  averageOfLevels(BinaryTreeNode root){
-		System.out.println(dfs_avg(root,0,sum,levelcount));
+	List<Double> levelcount = new ArrayList<Double>(); // division kosam d
+	public  ArrayList<Double>  averageOfLevels(BinaryTreeNode root){
+		dfs_avg(root,0,sum,levelcount);
+		ArrayList<Double> res = new ArrayList<>();
+		int i=0;
+		for(int x : sum){
+			res.add(x/levelcount.get(i));
+			i++;
+		}
+		return res;
 	}
-	public ArrayList<Integer> dfs_avg()
+	public void dfs_avg(BinaryTreeNode root, int n,List <Integer> sum , List<Double> levelcount){
+		if(levelcount.size()<= n){
+			levelcount.add(0.0);
+			sum.add(0);
+		}
+		sum.set(n,sum.get(n)+root.data);
+		levelcount.set(n,levelcount.get(n)+1);
+		if(root.left!= null && root.left.data != -1){
+			dfs_avg(root.left, n+1, sum, levelcount);
+		}
+		if(root.right!= null && root.right.data != -1){
+			dfs_avg(root.right, n+1, sum, levelcount);
+		}
+		return;
+	}
 
 
 }
